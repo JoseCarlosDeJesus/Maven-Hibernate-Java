@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>semanadepratica2</groupId>
+  <artifactId>semanadepratica2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>semanadepratica2</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4.1212</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.12.Final</version>
+		</dependency>
+		<!-- API, java.xml.bind module -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<!-- Runtime, com.sun.xml.bind module -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+  </dependencies>
+</project>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+<!-- Database connection settings -->
+<property
+name="connection.driver_class">org.postgresql.Driver</property>
+<property
+name="connection.url">jdbc:postgresql://localhost:5432/semanadepratica2</propert
+y>
+<property name="connection.username">postgres</property>
+<property name="connection.password">Limonada1452</property>
+<property name="hibernate.enable_lazy_load_no_trans">true</property>
+<!-- JDBC connection pool (use the built-in) -->
+<!-- <property name="connection.pool_size">1</property> -->
+<!-- SQL dialect -->
+<property
+name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</pro
+perty>
+<!-- Enable Hibernate's automatic session context management -->
+<!-- <property
+name="current_session_context_class">thread</property> -->
+<!-- Disable the second-level cache -->
+<!-- <property
+name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvi
+der</property> -->
+<!-- Echo all executed SQL to stdout -->
+
+<property name="show_sql">true</property>
+<!-- Drop and re-create the database schema on startup -->
+<property name="hbm2ddl.auto">update</property>
+<mapping class="semanadepratica2.model.Empregado" />
+<mapping class="semanadepratica2.model.Dependente" />
+</session-factory>
+</hibernate-configuration>
